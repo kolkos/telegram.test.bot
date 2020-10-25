@@ -1,5 +1,6 @@
 package nl.kolkos.telegram.test.bot.bot;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -9,7 +10,11 @@ import java.util.List;
 @Component
 public class TestBot extends TelegramLongPollingBot {
 
-    pr
+    @Value("telegram.bot.token")
+    private String botToken;
+
+    @Value("telegram.bot.name")
+    private String botName;
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -23,11 +28,11 @@ public class TestBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return null;
+        return this.botName;
     }
 
     @Override
     public String getBotToken() {
-        return null;
+        return this.botToken;
     }
 }
