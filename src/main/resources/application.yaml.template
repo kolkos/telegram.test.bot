@@ -1,0 +1,4 @@
+telegram:
+  bot:
+    token: xyz
+    name: xxx
